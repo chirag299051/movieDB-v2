@@ -1,0 +1,15 @@
+<div class="wrapper">
+     <h3>{{ heading }}</h3>
+     <div class="scrolls">
+          <div [routerLink]="['/content', content['type'], content['id']]" *ngFor="let content of list" class="imageDiv">
+               <!-- <img  (mouseover)="hover=true" (mouseleave)="hover=false" [ngStyle]="hover? 
+               {'-webkit-transform': 'scale(1.3)',
+                    '-ms-transform': 'scale(1.3)', 
+                    'transform': 'scale(1.3)'}: {}" [src]="content.imgSrc" 
+               /> -->
+               <img [src]="content.imgSrc" />
+          </div>
+     </div>
+</div>
+
+<!-- <button mat-raised-button (click)="addToWatchlist(content)">Add To Watchlist</button> -->

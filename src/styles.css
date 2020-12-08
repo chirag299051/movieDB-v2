@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+/* @import '@angular/material/prebuilt-themes/pink-bluegrey.css'; */
+
+html, body { height: 100%; }
+body {  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+        background-color: #000000;
+        background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;  
+        background: cyan;             /* width of vertical scrollbar */
+        /* border: 1px solid #d5d5d5; */
+      }
+      /* ::-webkit-scrollbar-thumb:horizontal{
+        background: #000;
+        border-radius: 10px;
+    } */

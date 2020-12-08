@@ -1,0 +1,40 @@
+<div>
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span id="logo" routerLink="/home">movieDB v2</span>
+    <span class="example-spacer"></span>
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input type="text"
+                
+                (input)="search($event.target.value)"
+                 placeholder="Search"
+                 aria-label="Number"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of _options" [value]="option['title']" (onSelectionChange)="enter(option['type'], option['id'])" [routerLink]="['/content', option['type'], option['id']]">
+              {{ option['title'] || option['name'] }} <span class="right">{{ option['year'].substring(0,4) }}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+    </form>
+
+      <span class="example-spacer"></span>
+      <div class="watchlist" routerLink="/watchlist">
+        <span>Watchlist</span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon [matBadge]="listCount" matBadgeColor="warn">favorite</mat-icon>
+    </button>
+      </div>
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button> -->
+</mat-toolbar>
+
+
+</div>

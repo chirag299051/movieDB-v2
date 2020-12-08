@@ -1,0 +1,6 @@
+<div class="container">
+    <list [heading]="'Your Watchlist'" [list]="watchlist" (onDeleteItem)="deleteItem()"></list>
+    <button mat-raised-button (click)="clearList()">Clear Watchlist</button>
+</div>
+
+
