@@ -5,6 +5,12 @@
   #logo {
     cursor: pointer;
     outline: none;
+    transition: all .2s ease-in-out;
+  }
+
+  #logo:hover {
+      color: teal;
+      opacity: .8;
   }
 
   .example-form {

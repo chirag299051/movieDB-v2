@@ -16,7 +16,13 @@
         <button mat-button (click)="addToWatchlist(data)">Add</button>
       </mat-card-actions>
     </mat-card>
+
     
+    
+</div>
+
+<div>
+  <button class="review" mat-button (click)="showReviews = true">Show Reviews</button>
 </div>
 
 <list [heading]="'More Like This...'" [list]="similar"></list>

@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TmdbService } from './services/tmdb.service';
 import { ListComponent } from './list/list.component';
 import { ImgDetailComponent } from './img-detail/img-detail.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ImgDetailComponent } from './img-detail/img-detail.component';
     WatchlistComponent,
     FooterComponent,
     ListComponent,
-    ImgDetailComponent
+    ImgDetailComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

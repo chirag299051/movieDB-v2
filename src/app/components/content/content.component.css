@@ -21,3 +21,28 @@
 mat-card-subtitle {
     color: teal;
 }
+
+button {
+    background: black;
+    opacity: 1;
+    border: .5px solid grey;
+    border-radius: 10px;
+    transition: all .2s ease-in-out;
+}
+
+button.review {
+    border: none;
+    color: white;
+    position: absolute;
+    margin-top: -300px;
+    margin-left: 100px;
+    background: black;
+    opacity: .6;
+    border-radius: 10px;
+    transition: all .2s ease-in-out;
+}
+
+button:hover {
+    color: teal;
+    opacity: .8;
+}

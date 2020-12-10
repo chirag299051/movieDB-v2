@@ -22,6 +22,7 @@ export class ContentComponent implements OnInit {
   similar;
   sub;
   data;
+  showReviews = false;
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -97,6 +98,7 @@ export class ContentComponent implements OnInit {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.showReviews = false;
   }
 
 }
