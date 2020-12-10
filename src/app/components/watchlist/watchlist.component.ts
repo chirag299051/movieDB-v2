@@ -15,8 +15,9 @@ export class WatchlistComponent implements OnInit {
 
   ngOnInit() {
     this.watchlist = this.user.getWatchlist().map(x => {
-      return { id: x['id'], name: x['title'], imgSrc: 'https://image.tmdb.org/t/p/w200'+x['poster_path'], type: 'movie', rating: x['vote_average'] }
+      return { id: x['id'], name: x['title'] || x['name'], imgSrc: 'https://image.tmdb.org/t/p/w200'+x['poster_path'], type: (x['type']==="Scripted")? 'tv' : 'movie', rating: x['vote_average'] }
     });
+    console.log(this.user.getWatchlist());
     console.log(this.watchlist)
   }
 
