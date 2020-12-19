@@ -1,5 +1,5 @@
 
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Content } from 'src/app/content.model';
 import { TmdbService } from 'src/app/services/tmdb.service';
@@ -12,14 +12,18 @@ import { UserService } from 'src/app/user.service';
 })
 export class ContentComponent implements OnInit {
   @ViewChild('div', { static: true }) div: ElementRef;
+  @ViewChild('r', { static: true }) r: ElementRef;
 
-  constructor(private route: ActivatedRoute, private service: TmdbService, private user: UserService) { }
+  constructor(private route: ActivatedRoute, private service: TmdbService, private user: UserService) {
+    
+   }
 
   id;
   type;
   movieContent;
   tvContent;
   similar;
+  reviews: {}[];
   sub;
   data;
   showReviews = false;
@@ -88,11 +92,24 @@ export class ContentComponent implements OnInit {
     this.service.getSimilar(this.type, this.id).subscribe(data => {
       console.log(data);
       this.similar = data['results'].map(x => {
-        return { id: x['id'], name: x['title'], imgSrc: 'https://image.tmdb.org/t/p/w200'+x['poster_path'], type: 'movie', rating: x['vote_average'] }
+        return { id: x['id'], name: x['title']||x['name'], imgSrc: 'https://image.tmdb.org/t/p/w200'+x['poster_path'], type: 'movie', rating: x['vote_average'] }
       });
       this.similar = this.similar.sort((a,b) => b['rating'] - a['rating']);
       console.log(this.similar);
     })
+  }
+
+  getReviews() {
+    this.showReviews = true;
+    this.service.getReviews(this.type, this.id).subscribe(data => {
+      console.log(data['results']);
+      this.reviews = data['results'].map(x => {
+        return { name: x['author'], content: x['content'], updated: x['updated_at'].substr(0,10), rating: x['author_details']['rating'], 
+        avatar: x['author_details']['avatar_path'] }
+      });
+      console.log(this.reviews);
+    })
+    this.r.nativeElement.scrollIntoView({behavior: 'smooth'});
   }
   
 

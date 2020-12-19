@@ -97,6 +97,8 @@ THE SOFTWARE.
 
 @angular/material/icon
 
+@angular/material/list
+
 @angular/material/toolbar
 
 @angular/platform-browser
@@ -104,6 +106,8 @@ MIT
 
 @angular/router
 MIT
+
+ang-readmore
 
 core-js
 MIT

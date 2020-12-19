@@ -43,5 +43,9 @@ export class TmdbService {
     return this.http.get(`https://api.themoviedb.org/3/${type}/${id}/recommendations?api_key=092e8cb2fdfe2fa5f210c9f2a932d024&language=en-US&page=1`)
   }
 
+  getReviews(type, id) {
+    return this.http.get(`https://api.themoviedb.org/3/${type}/${id}/reviews?api_key=092e8cb2fdfe2fa5f210c9f2a932d024&language=en-US&page=1`)
+  }
+
 
 }

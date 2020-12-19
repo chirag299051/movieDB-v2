@@ -22,7 +22,11 @@
 </div>
 
 <div>
-  <button class="review" mat-button (click)="showReviews = true">Show Reviews</button>
+  <button class="review" mat-button (click)="getReviews()">Show Reviews</button>
+</div>
+
+<div #r>
+  <reviews [reviews]="this.reviews" *ngIf="showReviews"></reviews>
 </div>
 
 <list [heading]="'More Like This...'" [list]="similar"></list>

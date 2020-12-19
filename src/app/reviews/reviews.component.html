@@ -1,1 +1,22 @@
-<p>reviews works!</p>
+<!-- <div class="container">
+    <h2>Reviews</h2>
+    <ul *ngFor="let obj of this.reviews; let i = index">
+        <li>{{ i+1 }}. {{ obj.name }}</li>
+    </ul>
+</div> -->
+
+<mat-list>
+  <h3>Reviews</h3>
+    <mat-list-item class="item" *ngFor="let obj of this.reviews; let i = index">
+      <img matListAvatar [src]="obj.avatar?obj.avatar.substr(1):null">
+      <h3 matLine>Rating: {{obj.rating}}/10 </h3>
+      
+        <span matLine> {{obj.name}} </span>
+        <p matLine class="demo-2"> --
+          <ang-readmore [text]="obj.content" [length]="500" linkColor="#26A69A"></ang-readmore> 
+          <!-- {{(show) ? obj.content : obj.content | slice:0:300}} <span *ngIf="!show">...</span>  -->
+          <!-- <a href="javascript:;" (click)="show = !show">{{!show? 'Read More' : 'Show Less'}}</a> -->
+        </p>
+      
+    </mat-list-item>
+</mat-list>

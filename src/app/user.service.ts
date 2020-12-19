@@ -33,4 +33,6 @@ export class UserService {
     this.watchlist = [];
     this.sendCount(this.watchlist.length);
   }
+
+  
 }
