@@ -35,12 +35,14 @@
 
   mat-toolbar {
       background-color: rgb(42, 45, 66);
+      /* background-color: black; */
       color: white;
       position: fixed;
       top: 0;
       width: 100%;
       box-shadow: 0 5px 10px -3px #010101;
       z-index: 1;
+      /* opacity: .5; */
   }
 
   mat-option {

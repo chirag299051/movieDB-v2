@@ -1,5 +1,3 @@
-
-
 .backdrop {
     /* background-image: linear-gradient(rgba(0,0,0,.85) 15%,rgba(0,0,0,.2) 40%,#000 90%); */
         padding-top: 80px;;
@@ -20,6 +18,19 @@
 
 mat-card-subtitle {
     color: teal;
+}
+
+span.rating {
+    color: goldenrod;
+    font-size: 28px;
+    font-weight: 600;
+    position: absolute;
+    right: 50px;
+}
+
+span.year {
+    color:gray;
+    font-size: 12px;
 }
 
 button {

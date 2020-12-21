@@ -40,11 +40,12 @@ export class ContentComponent implements OnInit {
       }
       this.similar = this.getSimilar();
     })
-
+    this.showReviews = false;
     
   }
 
   getMovieContent(id) {
+    this.showReviews = false;
     this.service.getMovieContent(this.id).subscribe(data => {
       this.data = data;
       this.movieContent = 
@@ -66,6 +67,7 @@ export class ContentComponent implements OnInit {
   }
 
   getTvContent(id) {
+    this.showReviews = false;
     this.service.getTvContent(this.id).subscribe(data => {
       this.data = data;
       this.tvContent = 

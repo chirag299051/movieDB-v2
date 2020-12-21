@@ -20,6 +20,7 @@ import { ListComponent } from './list/list.component';
 import { ImgDetailComponent } from './img-detail/img-detail.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { AngReadmoreModule } from 'ang-readmore';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { AngReadmoreModule } from 'ang-readmore';
     MatLineModule,
     AngReadmoreModule,
   ],
-  providers: [TmdbService],
+  providers: [TmdbService, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

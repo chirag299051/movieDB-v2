@@ -7,7 +7,8 @@ import { AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit } from '@an
 })
 export class ReviewsComponent implements OnInit {
   @Input() reviews: {}[];
-  i = []
+  // i = []
+  // show = false;
 
   constructor() { }
 
@@ -21,11 +22,13 @@ export class ReviewsComponent implements OnInit {
     // console.log('i : ', this.i);
   }
 
-  
+  ngOnDestroy() {
+    
+  }
     
   
 
 
-  show = false;
+  
 
 }

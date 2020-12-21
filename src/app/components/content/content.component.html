@@ -3,7 +3,10 @@
     <mat-card class="card">
         <div mat-card-image></div>
       <mat-card-header>
-        <mat-card-title>{{ this.type==="movie" ? movieContent['name'] : tvContent['name'] }}</mat-card-title>
+        <mat-card-title>{{ this.type==="movie" ? movieContent['name'] : tvContent['name'] }} 
+          <span class="year">  {{ this.type==="movie" ? movieContent['year'] : tvContent['year'] }}</span>
+          <span class="rating">{{ this.type==="movie" ? movieContent['rating'] : tvContent['rating'] }}</span>
+        </mat-card-title>
         <mat-card-subtitle>{{ this.type==="movie" ? movieContent['genre'] : tvContent['genre'] }}</mat-card-subtitle>
       </mat-card-header>
       
