@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'watchlist',
     component: WatchlistComponent
+  },
+  {
+    path: '**',
+    component: HomeComponent
   }
 ];
 
