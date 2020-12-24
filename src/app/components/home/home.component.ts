@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { List } from 'src/app/list.model';
 import { TmdbService } from 'src/app/services/tmdb.service';
 
@@ -9,7 +10,7 @@ import { TmdbService } from 'src/app/services/tmdb.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: TmdbService) { }
+  constructor(private service: TmdbService, private dialog: MatDialog) { }
 
   inTheatres: List[];
   topRatedMovies: List[];
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
     this.getTopRatedMovies();
     this.getTopRatedTv();
     this.getPopularTv();
+    this.openDialog()
   }
 
   getInTheatres() {
@@ -65,4 +67,29 @@ export class HomeComponent implements OnInit {
   }
 
 
+
+  // Login Modal/Dialog
+  openDialog() {
+    const dialogRef = this.dialog.open(Dialog, {
+      height: '500px',
+      width: '400px',
+      hasBackdrop: true,
+      backdropClass: '',
+      panelClass: 'dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+
+@Component({
+  selector: 'app-dialog',
+  templateUrl: './dialog.html',
+  styleUrls: ['./dialog.css']
+})
+export class Dialog {}
+
+
+

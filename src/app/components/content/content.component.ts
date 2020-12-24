@@ -59,7 +59,9 @@ export class ContentComponent implements OnInit {
         runtime: data['runtime']+ ' min',
         id: data['id']
       }
-      this.div.nativeElement.style.backgroundImage = this.movieContent.backdropURL;
+      // this.div.nativeElement.style.backgroundImage = this.movieContent.backdropURL;
+      this.div.nativeElement.style.backgroundImage = `linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,1) 90%),
+          ${this.movieContent.backdropURL}`;
       // this.div.nativeElement.style.background = `linear-gradient(top bottom left right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 0.65) 100%), ${this.movieContent.backdropURL} no-repeat`;
       console.log('div ', this.div.nativeElement.style.background)
       console.log('Movie', this.movieContent, this.movieContent.backdropURL);
@@ -81,7 +83,8 @@ export class ContentComponent implements OnInit {
         runtime: data['episode_run_time']+ ' min',
         id: data['id']
       }
-      this.div.nativeElement.style.backgroundImage = this.tvContent.backdropURL;
+      this.div.nativeElement.style.backgroundImage = `linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,1) 90%),
+      ${this.tvContent.backdropURL}`;
       console.log('TV', this.tvContent);
     })
   }

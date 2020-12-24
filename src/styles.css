@@ -4,6 +4,7 @@
 /* @import '@angular/material/prebuilt-themes/pink-bluegrey.css'; */
 
 html, body { height: 100%; }
+
 body {  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
         background-color: #000000;
         background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
@@ -18,3 +19,24 @@ body {  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
         background: #000;
         border-radius: 10px;
     } */
+
+.dialog mat-dialog-container{
+  background: black;
+  color: white;
+  opacity: .85;
+}
+
+.dialog button {
+  border-radius: 20px;
+  border: 2px solid grey;
+  font-size: 18px;
+  color: red;
+  margin-top: 70px;
+}
+
+.dialog button[mat-dialog-close] {
+  color: grey;
+  border: none;
+  font-weight: 800px;
+  
+}
