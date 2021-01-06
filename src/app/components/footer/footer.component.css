@@ -7,6 +7,19 @@
     font-weight: 500;
     background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,1));
   }
+  
+  a {
+    color: inherit;
+    text-decoration: none; /* no underline */
+  }
+
+  a #c {
+    transition: all .2s ease-in-out;
+  }
+
+  a:hover #c {
+    color:red;
+  }
 
   img {
     position: absolute;

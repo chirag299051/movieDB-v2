@@ -25,6 +25,8 @@
     </form>
 
       <span class="example-spacer"></span>
+      <button routerLink="/genres/movie" [ngStyle]="{background: param==='movie'?'red':'tv'?'':''}" mat-raised-button>Movies</button>
+      <button routerLink="/genres/tv" [ngStyle]="{background: param==='tv'?'red':''}" mat-raised-button>Tv Shows</button>
       <div class="watchlist" routerLink="/watchlist">
         <span>Watchlist</span>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">

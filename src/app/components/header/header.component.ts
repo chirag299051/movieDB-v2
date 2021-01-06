@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { RouteService } from 'src/app/route.service';
 import { TmdbService } from 'src/app/services/tmdb.service';
 import { UserService } from 'src/app/user.service';
 
@@ -13,15 +14,18 @@ import { UserService } from 'src/app/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private tmdb: TmdbService, private user: UserService, private router: Router) { }
+  constructor(private tmdb: TmdbService, private user: UserService, private router: Router, private route: ActivatedRoute, 
+    private routeService: RouteService) { }
 
   value;
   options = [];
   _options = [];
   listCount;
+  param;
 
   ngOnInit() {
     this.user.count.subscribe(x => this.listCount = x);
+    this.routeService.param.subscribe(x => this.param = x);
   }
 
   search(e) {

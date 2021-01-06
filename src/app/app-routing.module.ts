@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContentComponent } from './components/content/content.component';
 import { HomeComponent } from './components/home/home.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
+import { GenresComponent } from './genres/genres.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'watchlist',
     component: WatchlistComponent
+  },
+  {
+    path: 'genres/:type',
+    component: GenresComponent
   },
   {
     path: '**',

@@ -47,5 +47,14 @@ export class TmdbService {
     return this.http.get(`https://api.themoviedb.org/3/${type}/${id}/reviews?api_key=092e8cb2fdfe2fa5f210c9f2a932d024&language=en-US&page=1`)
   }
 
+  getGenreMovies(id) {
+    return this.http.get(`https://api.themoviedb.org/3/discover/movie?api_key=092e8cb2fdfe2fa5f210c9f2a932d024&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&
+    page=1&with_genres=${id}`)
+  }
+
+  getGenreTv(id) {
+    return this.http.get(`https://api.themoviedb.org/3/discover/tv?api_key=092e8cb2fdfe2fa5f210c9f2a932d024&language=en-US&
+    page=1&timezone=America%2FNew_York&with_genres=${id}&include_null_first_air_dates=false`)
+  }
 
 }

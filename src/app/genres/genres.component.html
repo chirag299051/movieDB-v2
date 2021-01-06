@@ -1,0 +1,6 @@
+<div class="padding">
+    <div *ngFor="let genre of genres">
+        <list [heading]="genre.name" [list]="param==='movie'? genre['movies'] : genre['tv']"></list>
+    </div>
+</div>
+

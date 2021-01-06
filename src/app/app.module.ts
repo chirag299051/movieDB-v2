@@ -22,6 +22,7 @@ import { ImgDetailComponent } from './img-detail/img-detail.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { AngReadmoreModule } from 'ang-readmore';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { GenresComponent } from './genres/genres.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     ListComponent,
     ImgDetailComponent,
     ReviewsComponent,
-    Dialog
+    Dialog,
+    GenresComponent
   ],
   imports: [
     BrowserModule,
