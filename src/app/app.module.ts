@@ -12,7 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatAutocompleteModule, MatBadgeModule, MatButtonModule, MatCardModule, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle, MatFormFieldModule, MatInputModule, MatLineModule, MatListModule } from '@angular/material';
+import { MatAutocompleteModule, MatBadgeModule, MatButtonModule, MatCardModule, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle, MatFormFieldModule, MatInputModule, MatLineModule, MatListModule, MatSnackBarModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +23,19 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { AngReadmoreModule } from 'ang-readmore';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { GenresComponent } from './genres/genres.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MatMenuModule} from '@angular/material/menu';
 
+var config = {
+  apiKey: "AIzaSyALhSI179BUJ7O6M140H2E2Rbo2--B4m98",
+  authDomain: "moviedb-v2-chirag.firebaseapp.com",
+  projectId: "moviedb-v2-chirag",
+  storageBucket: "moviedb-v2-chirag.appspot.com",
+  messagingSenderId: "220585377340",
+  appId: "1:220585377340:web:155cb040c2e3ef00738d39",
+  measurementId: "G-SMSNZY52XN"
+};
 
 @NgModule({
   declarations: [
@@ -41,6 +53,8 @@ import { GenresComponent } from './genres/genres.component';
     GenresComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -59,6 +73,8 @@ import { GenresComponent } from './genres/genres.component';
     MatLineModule,
     AngReadmoreModule,
     MatDialogModule,
+    MatSnackBarModule,
+    MatMenuModule
   ],
   entryComponents: [HomeComponent,Dialog],
   providers: [TmdbService, {provide: LocationStrategy, useClass: PathLocationStrategy}],

@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { RouteService } from 'src/app/route.service';
 import { TmdbService } from 'src/app/services/tmdb.service';
 import { UserService } from 'src/app/user.service';
+import { User } from '../home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +15,18 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild(MatMenuTrigger, {static: false}) trigger: MatMenuTrigger;
 
-  constructor(private tmdb: TmdbService, private user: UserService, private router: Router, private route: ActivatedRoute, 
+  openMenu() {
+    console.log('Enter')
+    this.trigger.openMenu();
+  }
+  closeMenu() {
+    console.log('Leave')
+    this.trigger.closeMenu();
+  }
+
+  constructor(private tmdb: TmdbService, public user: UserService, private router: Router, private route: ActivatedRoute, 
     private routeService: RouteService) { }
 
   value;
@@ -22,10 +34,13 @@ export class HeaderComponent implements OnInit {
   _options = [];
   listCount;
   param;
+  userData;
+
 
   ngOnInit() {
     this.user.count.subscribe(x => this.listCount = x);
     this.routeService.param.subscribe(x => this.param = x);
+    this.user.userData.subscribe(data => this.userData = data);
   }
 
   search(e) {

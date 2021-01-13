@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 import { List } from 'src/app/list.model';
 import { TmdbService } from 'src/app/services/tmdb.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-home',
@@ -89,7 +91,23 @@ export class HomeComponent implements OnInit {
   templateUrl: './dialog.html',
   styleUrls: ['./dialog.css']
 })
-export class Dialog {}
+export class Dialog {
+
+  constructor(private user: UserService) {}
+
+  login() {
+    this.user.login();
+  }
+
+}
+
+export interface User {
+  name?: string;
+  uid?: string;
+  email?: string;
+  photoURL?: string;
+  displayName?: string;
+}
 
 
 

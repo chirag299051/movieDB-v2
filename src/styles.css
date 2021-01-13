@@ -51,3 +51,14 @@ body {  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   font-weight: 800px;
   
 }
+
+.snackbar {
+  background-color: teal;
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+.mat-menu-panel.myMenu {
+  background-color: black;
+  opacity: .8;
+}

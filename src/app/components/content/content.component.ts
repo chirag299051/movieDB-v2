@@ -97,7 +97,7 @@ export class ContentComponent implements OnInit {
     this.service.getSimilar(this.type, this.id).subscribe(data => {
       console.log(data);
       this.similar = data['results'].map(x => {
-        return { id: x['id'], name: x['title']||x['name'], imgSrc: 'https://image.tmdb.org/t/p/w200'+x['poster_path'], type: 'movie', rating: x['vote_average'] }
+        return { id: x['id'], name: x['title']||x['name'], imgSrc: 'https://image.tmdb.org/t/p/w200'+x['poster_path'], type: this.type, rating: x['vote_average'] }
       });
       this.similar = this.similar.sort((a,b) => b['rating'] - a['rating']);
       console.log(this.similar);

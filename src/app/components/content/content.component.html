@@ -1,6 +1,6 @@
 <div #div class="backdrop" >
     
-    <mat-card class="card">
+    <mat-card class="card" *ngIf="movieContent || tvContent">
         <div mat-card-image></div>
       <mat-card-header>
         <mat-card-title>{{ this.type==="movie" ? movieContent['name'] : tvContent['name'] }} 
