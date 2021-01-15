@@ -27,19 +27,22 @@
       <span class="example-spacer"></span>
       <button class="transition" routerLink="/genres/movie" [ngStyle]="{background: param==='movie'?'red':'tv'?'':''}" mat-raised-button>Movies</button>
       <button class="transition" routerLink="/genres/tv" (mouseenter)="trigger.closeMenu()" [ngStyle]="{background: param==='tv'?'red':''}" mat-raised-button>Tv Shows</button>
-      <button class="transition" routerLink="/home" *ngIf="!userData['name'] && userData!==null" mat-raised-button (click)="user.login()">Login</button>
+      <button class="transition" routerLink="/home" *ngIf="!userData['name'] && userData!==null" mat-raised-button (click)="user.login()">Sign In</button>
       <!-- <button [matMenuTriggerFor]="menu" #trigger="matMenuTrigger" (mouseenter)="trigger.openMenu()" (mouseleave)="trigger.closeMenu()">Menu</button> -->
 
       
-        <button mat-icon-button *ngIf="userData['name']" class="transition" [matMenuTriggerFor]="menu" #trigger="matMenuTrigger" 
+        <button mat-icon-button id="margin" *ngIf="userData['name']" class="transition"
+        [matMenuTriggerFor]="menu" #trigger="matMenuTrigger" 
         (mouseover)="trigger.openMenu()">
           {{ userData['name'] }}
+          <mat-icon [matBadge]="listCount" matBadgeColor="warn" class="favorite">favorite</mat-icon>
         </button>
 
-        <mat-menu #menu="matMenu" class="mat-menu-panel myMenu" [hasBackdrop]="false" overlapTrigger="false">
+        <mat-menu #menu="matMenu" class="mat-menu-panel myMenu" [hasBackdrop]="false" overlapTrigger="false" xPosition="after">
           <div (mouseleave)="trigger.closeMenu()">
             <button mat-menu-item routerLink="/watchlist">
               Watchlist
+              <mat-icon [matBadge]="listCount" matBadgeColor="warn" class="favorite">favorite</mat-icon>
             </button>
             <button mat-menu-item (click)="user.logout()">
               Logout
