@@ -12,8 +12,10 @@ import { User } from './components/home/home.component';
 export class UserService {
   private source = new BehaviorSubject(0);
   count = this.source.asObservable();
-  private source2 = new BehaviorSubject<User>({});
+  private source2 = new BehaviorSubject<User>({}); 
   userData = this.source2.asObservable();
+  private source3 = new BehaviorSubject<boolean>(false);
+  auth = this.source3.asObservable();
 
   watchlist = [];
 
@@ -40,14 +42,16 @@ export class UserService {
       this.user.photoURL = x.photoURL;
       this.user.displayName = x.displayName;
       console.log(this.user);
+      this.sendAuth(true); 
       this.sendUser(this.user); 
-      this.openSnackBar(); 
+      this.openSnackBar();
     })
   }
 
   async logout() {
     await this.afAuth.signOut();
-    this.router.navigate(['/']);
+    // this.authenticated = false;
+    this.sendAuth(false);
   }
 
   sendUser(value) {
@@ -57,6 +61,12 @@ export class UserService {
   sendCount(value) {
     this.source.next(value);
   }
+
+  sendAuth(value) {
+    this.source3.next(value);
+  }
+
+
 
   addToList(data: any[]) {
     this.watchlist.push(data);

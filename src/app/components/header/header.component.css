@@ -86,6 +86,11 @@
       color: red;
   }
 
+  .avatar {
+    height: 80%;
+    border-radius: 50%;
+  }
+
   /* mat-menu {
     background-color: black;
   } */

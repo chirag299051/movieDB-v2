@@ -1,6 +1,11 @@
 <div class="container">
     <list [heading]="'Your Watchlist'" [list]="watchlist" ></list>
-    <button mat-raised-button (click)="clearList()">Clear Watchlist</button>
+    <button mat-raised-button (click)="clearList()">Clear Watchlist</button><br>
+    <button mat-raised-button (click)="clearList()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_back</mat-icon>
+        Go Back
+    </button>
+    
 </div>
 
 

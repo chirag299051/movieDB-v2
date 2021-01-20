@@ -41,6 +41,7 @@ export class HeaderComponent implements OnInit {
     this.user.count.subscribe(x => this.listCount = x);
     this.routeService.param.subscribe(x => this.param = x);
     this.user.userData.subscribe(data => this.userData = data);
+    
   }
 
   search(e) {

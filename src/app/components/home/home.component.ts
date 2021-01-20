@@ -12,7 +12,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: TmdbService, private dialog: MatDialog) { }
+  constructor(private service: TmdbService, private dialog: MatDialog, public user: UserService) { }
 
   inTheatres: List[];
   topRatedMovies: List[];
@@ -24,7 +24,11 @@ export class HomeComponent implements OnInit {
     this.getTopRatedMovies();
     this.getTopRatedTv();
     this.getPopularTv();
-    this.openDialog()
+
+    this.user.auth.subscribe(x => {
+      console.log('AUTH :',x)
+      x===false ? this.openDialog() : null
+    });
   }
 
   getInTheatres() {
