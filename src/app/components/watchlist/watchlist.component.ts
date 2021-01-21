@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-watchlist',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class WatchlistComponent implements OnInit {
 
-  constructor(private user: UserService) {
+  constructor(private user: UserService, private _location: Location) {
    }
 
    watchlist;
@@ -24,6 +25,10 @@ export class WatchlistComponent implements OnInit {
   clearList() {
     this.user.clearList();
     this.watchlist = [];
+  }
+
+  back() {
+    this._location.back();
   }
 
   deleteItem(i) {

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import firebase from 'firebase/app'
 import { BehaviorSubject } from 'rxjs';
 import { User } from './components/home/home.component';
+import { AngularFireDatabase} from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,11 @@ export class UserService {
 
   watchlist = [];
 
-  constructor(private afAuth: AngularFireAuth, public _snackBar: MatSnackBar, private router: Router) { }
+  constructor(private afAuth: AngularFireAuth, 
+    public _snackBar: MatSnackBar, 
+    private router: Router,
+    private db: AngularFireDatabase
+    ) { }
 
   user = <User>{};
 
@@ -45,6 +50,7 @@ export class UserService {
       this.sendAuth(true); 
       this.sendUser(this.user); 
       this.openSnackBar();
+      this.createUser(this.user);
     })
   }
 
@@ -52,6 +58,10 @@ export class UserService {
     await this.afAuth.signOut();
     // this.authenticated = false;
     this.sendAuth(false);
+  }
+
+  createUser(user: {}) {
+    this.db.object('/users/'+ user['uid']).update(user);
   }
 
   sendUser(value) {
